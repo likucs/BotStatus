@@ -39,12 +39,12 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "**@BotzHub Bots Stats.**\n\n`Performing a periodic check...`",
+                    "**@GroupDcBots Bots Stats.**\n\n`Performing a periodic check...`",
                 )
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "**@BotzHub Bots Stats.**\n\n"
+            edit_text = "**@GroupDcBots Bots Stats.**\n\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -67,9 +67,9 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down.")
-                        edit_text += f"@{bot} - ❌\n"
+                        edit_text += f"@{bot} - ❌\n\n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"@{bot} - ✅\n"
+                        edit_text += f"@{bot} - ✅\n\n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:

@@ -49,7 +49,7 @@ async def BotzHub():
                 try:
                     logging.info(f"[INFO] checking @{bot}")
                     snt = await user_bot.send_message(bot, "/start")
-                    await asyncio.sleep(10)
+                    await asyncio.sleep(5)
 
                     history = await user_bot(
                         GetHistoryRequest(
@@ -57,7 +57,7 @@ async def BotzHub():
                             offset_id=0,
                             offset_date=None,
                             add_offset=0,
-                            limit=1,
+                            limit=2,
                             max_id=0,
                             min_id=0,
                             hash=0,
@@ -74,14 +74,14 @@ async def BotzHub():
                     c += 1
                 except FloodWaitError as f:
                     logging.info(f"Floodwait!\n\nSleeping for {f.seconds}...")
-                    sleep(f.seconds + 10)
+                    sleep(f.seconds + 5)
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             k = pytz.timezone("Asia/Kolkata")
             month = dt.now(k).strftime("%B")
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"\n**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ] \n\n Admin : @Selfiebd | @DcBotsa`\n\n`Bots status are auto-updated every 2 hours`\n\n**〽️ Powered by** ||@GroupDcBots||"
+            edit_text += f"\n**ʟᴀꜱᴛ ᴄʜᴇᴄᴋ** ☞ `{t} - {day} {month} {year} [ɪꜱᴛ]`\n\n`Bots status are auto-updated every 2 hours`"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since last restart - {c}")
             logging.info("Sleeping for 2 hours.") # we use workflows here.

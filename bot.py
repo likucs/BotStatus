@@ -49,7 +49,7 @@ async def BotzHub():
                 try:
                     logging.info(f"[INFO] checking @{bot}")
                     snt = await user_bot.send_message(bot, "/start")
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(15)
 
                     history = await user_bot(
                         GetHistoryRequest(
@@ -74,7 +74,7 @@ async def BotzHub():
                     c += 1
                 except FloodWaitError as f:
                     logging.info(f"Floodwait!\n\nSleeping for {f.seconds}...")
-                    sleep(f.seconds + 5)
+                    sleep(f.seconds + 15)
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             k = pytz.timezone("Asia/Kolkata")
             month = dt.now(k).strftime("%B")

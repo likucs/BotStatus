@@ -39,12 +39,12 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "**@GroupDcBots Bots Stats.**\n\n`Performing a periodic check...`",
+                    "**@cs_cloud Bots Stats.**\n\n`Performing a periodic check...`",
                 )
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "**@GroupDcBots 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\n\n"
+            edit_text = "**@cs_cloud 🔰 ʙᴏᴛ ʟɪꜱᴛ 🔰  **\n\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
